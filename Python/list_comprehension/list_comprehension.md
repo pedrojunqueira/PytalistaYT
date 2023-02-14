@@ -10,7 +10,7 @@ Loop in python work a little different from "C Like"languages.
 
 What a for loop in python do is to iterate a collection.
 
-For exampla a `list` of items `["One", "Two", "Three"]`
+For exampla a `list` of items `[24, 23, 45, 60, 11]`
 
 a loop would be 
 
@@ -32,9 +32,9 @@ ages = [24, 23, 45, 60, 11]
 
 filtered_list = [i + 1 for i in ages]
 
-``
+```
 
-## In list comprehension with if condition
+## list comprehension with "if" condition
 
 ```python
 
@@ -44,7 +44,7 @@ filtered_list = [ i for i in ages if i > 25 ]
 
 ```
 
-## if else
+## "if" and  "else"
 
 ```python
 
