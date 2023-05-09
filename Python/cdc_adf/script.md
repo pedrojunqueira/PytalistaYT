@@ -243,4 +243,12 @@ for `triggerEndTime`
 
 25. Use the python script to add more transactions to the database
 
+`python populate_table.py`
+
+[ubuntu pyodbc driver](https://stackoverflow.com/questions/43417886/pyodbc-error-while-running-application-within-a-container)
+
+[install SQL server driver ubuntu driver](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver16&tabs=ubuntu18-install%2Calpine17-install%2Cdebian8-install%2Credhat7-13-install%2Crhel7-offline)
+
+
+
 26. Wait 5 minutes and check if trigger ran and parquet file was saved

@@ -1,9 +1,7 @@
-import os
 import logging
 import configparser
 from typing import List
 
-import pandas as pd
 import pyodbc
 from faker import Faker
 
