@@ -1,7 +1,7 @@
-2023-10-11 18:17:50,043:mypackage.module:debuggig something
-2023-10-11 18:17:50,043:mypackage.module:just info
-2023-10-11 18:17:50,044:mypackage.module:warning
-2023-10-11 18:17:50,044:mypackage.module:Ooops error!
-2023-10-11 18:17:50,044:mypackage.module:Critical error! 😠
-2023-10-11 18:17:50,044:root:debuggig something
-2023-10-11 18:17:50,044:root:critical root
+DEBUG:2023-10-11 18:30:20,503:mypackage.module:debuggig something
+INFO:2023-10-11 18:30:20,504:mypackage.module:just info
+WARNING:2023-10-11 18:30:20,504:mypackage.module:warning
+ERROR:2023-10-11 18:30:20,504:mypackage.module:Ooops error!
+CRITICAL:2023-10-11 18:30:20,504:mypackage.module:Critical error! 😠
+DEBUG:2023-10-11 18:30:20,504:root:This is a critical message
+CRITICAL:2023-10-11 18:30:20,504:root:This is a critical message

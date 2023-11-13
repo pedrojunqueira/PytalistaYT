@@ -2,12 +2,13 @@ import logging
 
 from mypackage import module
 
-logging.basicConfig(level = logging.DEBUG, format = '%(asctime)s:%(name)s:%(message)s')
+
+logging.basicConfig(level = logging.DEBUG, format = '%(levelname)s:%(asctime)s:%(name)s:%(message)s')
 logging.getLogger(__name__)
 
 log = logging.getLogger()
 
-formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
+formatter = logging.Formatter('%(levelname)s:%(asctime)s:%(name)s:%(message)s')
 
 file_handler = logging.FileHandler('my_program.log')
 file_handler.setLevel(logging.DEBUG)
@@ -17,8 +18,9 @@ logging.getLogger('my_package.module').addHandler(file_handler)
 
 module.do_something()
 
-log.debug('debuggig something')
-log.critical('critical root')
+log.debug('This is a critical message')
+log.critical('This is a critical message')
+
 
 
 
