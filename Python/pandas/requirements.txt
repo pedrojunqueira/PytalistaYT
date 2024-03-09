@@ -3,3 +3,4 @@ notebook
 matplotlib
 pyodbc
 SQLAlchemy
+requests
