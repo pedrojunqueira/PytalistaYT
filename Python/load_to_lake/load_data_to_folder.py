@@ -18,6 +18,8 @@ fs = adlfs.AzureBlobFileSystem(
 
 
 
-with fs.open("copy-files/hello.txt", "w") as fp:
-    fp.write("hello world")
+# with fs.open("copy-files/hello_from_adlfs.txt", "w") as fp:
+#     fp.write("hello world")
 
+with fs.open("copy-files/hello_from_adlfs.txt", "r") as fp:
+    print(fp.read())

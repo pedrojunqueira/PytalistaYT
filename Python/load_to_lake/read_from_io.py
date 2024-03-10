@@ -1,7 +1,5 @@
 
-
-
-with open("data.csv", "r") as file:
+with open("text.txt", "r") as file:
     data = file.read()
     print(data)
 
