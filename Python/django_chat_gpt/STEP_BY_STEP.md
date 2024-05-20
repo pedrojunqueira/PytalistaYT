@@ -268,14 +268,22 @@ def get_existing_messages() -> list:
 
 ### Step 14: Create a _chat_box.html file in chatbot_app/templates/partials/_chat_box.html
 ```html
-{% for message in messages %}
-  <div class="mt-4 {% if forloop.last %}typewriter{% endif %}">
-    <p class="p-2 rounded {% if message.user_message %}bg-primary text-white{% else %}bg-secondary text-white{% endif %}">
-      {{ message.user_message|default:"" }}
-      {{ message.bot_message|default:"" }}
+{% if messages %}
+<div>
+  {% for message in messages %}
+  <div class="mt-4">
+    <p class="p-2 rounded" style="background-color: #007bff; color: #fff;">
+      User: {{ message.user_message }}
     </p>
   </div>
-{% endfor %}
+  <div class="mt-4 {% if forloop.last %}typewriter{% endif %}">
+    <p class="p-2 rounded" style="background-color: #f0f0f0;">
+      Bot: {{ message.bot_message }}
+    </p>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
 ```
 ## Step 15: Create a urls.py file in chatbot_app folder like -> chatbot_app/urls.py
 ```python
