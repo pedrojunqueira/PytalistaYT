@@ -1,0 +1,32 @@
+    {% extends "base.html" %} {% block content %}
+    <div class="container">
+      <div id="conversation">
+        <div class="mt-4 {% if forloop.last %}typewriter{% endif %}">
+          <p class="p-2 rounded" style="background-color: #f0f0f0;">
+           Hello! I am a chatbot. How can I help you today?
+          </p>
+        <div id="chatbox">
+          {% include 'partials/_chat_box.html' %}
+        </div>
+        <div class="span htmx-indicator" id="loading">thinking ...</div>
+        <form
+          hx-post="{% url 'add_conversation' %}"
+          hx-target="#chatbox"
+          hx-indicator="#loading"
+          id="chat-form"
+          onsubmit="event.preventDefault(); clearInputField();"
+        >
+          {% csrf_token %}
+          <div class="input-fields">
+            <input class="form-control mb-4" type="text" name="message" id="question-input" />
+            <button class="btn btn-primary" type="submit" >
+              Send
+            </button>
+            <a href="{% url 'clear_chat' %}" class="btn btn-secondary">
+              Clear Chat
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+    {% endblock %}

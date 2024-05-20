@@ -1,0 +1,16 @@
+{% if messages %}
+<div>
+  {% for message in messages %}
+  <div class="mt-4">
+    <p class="p-2 rounded" style="background-color: #007bff; color: #fff;">
+      User: {{ message.user_message }}
+    </p>
+  </div>
+  <div class="mt-4 {% if forloop.last %}typewriter{% endif %}">
+    <p class="p-2 rounded" style="background-color: #f0f0f0;">
+      Bot: {{ message.bot_message }}
+    </p>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
