@@ -3,3 +3,7 @@ configparser.ini
 init_configparser.py
 config.ini
 create_config.py
+.env
+.terraform*
+terraform.tfstate*
+
