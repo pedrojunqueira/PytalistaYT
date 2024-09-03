@@ -1,0 +1,27 @@
+resources:
+  jobs:
+    demo_job:
+      name: demo_job
+
+      schedule:
+        quartz_cron_expression: '0 0 5 * * ?'
+        timezone_id: Australia/Adelaide
+
+      email_notifications:
+        on_failure:
+          - ${var.notification-email}
+
+      tasks:
+        - task_key: notebook_task
+          existing_cluster_id: ${var.all-purpose-cluster-id}
+          notebook_task:
+            notebook_path: ../src/notebook.ipynb
+        
+      job_clusters:
+        - job_cluster_key: job_cluster
+          new_cluster:
+            spark_version: 14.3.x-scala2.12
+            node_type_id: Standard_D3_v2
+            autoscale:
+                min_workers: 1
+                max_workers: 2
