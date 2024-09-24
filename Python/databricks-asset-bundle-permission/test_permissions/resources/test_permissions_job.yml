@@ -1,0 +1,23 @@
+# The main job for test_permissions.
+resources:
+  jobs:
+    test_permissions_job:
+      name: test_permissions_job
+      tasks:
+        - task_key: notebook_task
+          job_cluster_key: job_cluster
+          notebook_task:
+            notebook_path: ../src/notebook.ipynb
+      permissions:
+        - user_name: dataeng@dataeng42pedrojunqueira.onmicrosoft.com
+          level: CAN_MANAGE_RUN
+        - user_name: datascience@dataeng42pedrojunqueira.onmicrosoft.com
+          level: CAN_MANAGE_RUN
+      job_clusters:
+        - job_cluster_key: job_cluster
+          new_cluster:
+            spark_version: 13.3.x-scala2.12
+            node_type_id: Standard_D3_v2
+            autoscale:
+                min_workers: 1
+                max_workers: 2
