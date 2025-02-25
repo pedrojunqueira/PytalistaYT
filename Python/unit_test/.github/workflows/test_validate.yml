@@ -1,0 +1,46 @@
+name: run_tests_and_bundle_validation
+
+concurrency: 1
+
+on:
+  workflow_dispatch:
+
+#  push:
+#    branches:
+#      - main
+
+jobs:
+  validate:
+    name: "Test code and bundle"
+    runs-on: ubuntu-latest
+    environment: test
+    defaults:
+      run:
+        working-directory: .
+ 
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r requirements.txt
+
+      #----------------------------------------------
+      #              run test suite
+      #----------------------------------------------
+      - name: Run unit tests
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          python -m pytest
+     
+      - uses: databricks/setup-cli@main
+
+      - run: databricks bundle validate
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}

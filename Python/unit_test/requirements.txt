@@ -1,0 +1,2 @@
+pytest
+databricks-connect==15.1.*
